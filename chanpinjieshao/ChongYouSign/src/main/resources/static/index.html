@@ -1,0 +1,505 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>小程序-重邮指路牌</title>
+    <link rel="shortcut icon" href="https://ae01.alicdn.com/kf/Ud022037b47ce4e71b1b3e24b50ed09a3S.jpg">
+    <style type="text/css">
+        blockquote, body, button, dd, dl, dt, fieldset, h1, h2, h3, h4, h5, h6, hr, input, lengend, li, ol, p, pre, td, textarea, th, ul {
+            margin: 0;
+            padding: 0;
+            color: #666
+        }
+
+        body {
+            background-color: #f4f4f4
+        }
+
+        body, button, input, select, textarea {
+            font: 14px/1 Microsoft Yahei, sans-serif;
+            font-weight: lighter
+        }
+
+        h1 {
+            font-size: 18px
+        }
+
+        h2 {
+            font-size: 16px
+        }
+
+        h3 {
+            font-size: 14px
+        }
+
+        h4, h5, h6 {
+            font-size: 100%
+        }
+
+        address, cite, dfn, em, var {
+            font-style: normal
+        }
+
+        code, kbd, pre, samp, tt {
+            font-family: "Courier New", Courier, monospace
+        }
+
+        small {
+            font-size: 12px
+        }
+
+        ol, ul {
+            list-style: none
+        }
+
+        a {
+            text-decoration: none
+        }
+
+        a:hover {
+            text-decoration: underline
+        }
+
+        abbr[title], acronym[title] {
+            border-bottom: 1px dotted;
+            cursor: help
+        }
+
+        q:after, q:before {
+            content: ''
+        }
+
+        legend {
+            color: #000
+        }
+
+        fieldset, img {
+            border: none
+        }
+
+        button, input, select, textarea {
+            font-size: 100%
+        }
+
+        table {
+            border-collapse: collapse;
+            border-spacing: 0
+        }
+
+        hr {
+            border: none;
+            height: 1px
+        }
+
+        html {
+            overflow-y: scroll
+        }
+
+        ::selection {
+            background-color: #52bd8e;
+            color: #fff;
+            text-shadow: none;
+        }
+
+        body, html {
+            height: 100%
+        }
+
+        body {
+            background-color: #d7e8e0;
+            font-size: 18px;
+        }
+
+        .wrap {
+            width: 1200px;
+            margin: 0 auto;
+            transition: all .3s;
+        }
+
+        .gray {
+            filter: grayscale(60%);
+        }
+
+        .title {
+            display: inline-block;
+            position: relative;
+            margin-top: 50px;
+            font-size: 50px;
+            margin-bottom: 20px;
+        }
+
+        .title:after {
+            content: 'v2.0';
+            display: block;
+            position: absolute;
+            right: -60px;
+            bottom: 5px;
+            width: 50px;
+            height: 20px;
+            font-size: 16px;
+            text-align: center;
+            line-height: 20px;
+            border: 1px solid #666;
+            border-radius: 8px;
+        }
+
+        .website {
+            margin-bottom: 50px;
+            display: block;
+        }
+
+        .title, .website {
+            color: #555;
+            text-decoration: none;
+            text-shadow: 1px 1px rgba(255, 255, 255, .4);
+            transition: all .3s;
+        }
+
+        .website:hover {
+            text-decoration: underline;
+        }
+
+        .screenshot-list {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            width: 1200px;
+            transition: all .3s;
+        }
+
+        .screenshot-item {
+            width: 280px;
+            margin-bottom: 20px;
+            transition: all .3s;
+            animation: fadeIn 1s;
+        }
+
+        .screenshot-item:hover {
+            transform: translateY(-10px);
+        }
+
+        .screenshot-item img {
+            width: 280px;
+            height: 498px;
+            cursor: pointer;
+            box-shadow: 26px 26px 68px rgba(177, 210, 194, .35);
+            transition: all .3s;
+        }
+
+        .screenshot-item img:hover {
+            box-shadow: 0 30px 120px rgba(49, 105, 71, .3);
+        }
+
+        .screenshot-item:empty {
+            height: 0;
+            border: none;
+        }
+
+        .screenshot-title {
+            height: 60px;
+            line-height: 60px;
+            text-align: center;
+            transition: all .3s;
+        }
+
+        @media (min-width: 1600px) {
+            .wrap {
+                width: 1600px;
+            }
+
+            .screenshot-list {
+                width: 1600px;
+            }
+
+            .screenshot-item {
+                width: 375px;
+                margin-bottom: 20px;
+            }
+
+            .screenshot-item img {
+                width: 375px;
+                height: 667px;
+            }
+
+            .title {
+                font-size: 70px;
+            }
+
+            .website {
+                font-size: 24px;
+            }
+
+            .screenshot-title {
+                font-size: 20px;
+            }
+        }
+
+        .mask {
+            position: fixed;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(255, 255, 255, .6);
+            transition: all 6s;
+            user-select: none;
+            visibility: hidden;
+        }
+
+        .previous, .next {
+            position: fixed;
+            top: 50%;
+            margin-top: -30px;
+            width: 60px;
+            height: 60px;
+            background-color: #fff;
+            border-radius: 60px;
+            cursor: pointer;
+            box-shadow: 0 10px 120px rgba(0, 0, 0, .6);
+            transition: all .3s;
+        }
+
+        .previous:hover, .next:hover {
+            transform: scale(1.1);
+        }
+
+        .previous:active, .next:active {
+            transform: scale(0.9);
+        }
+
+        .previous {
+            left: 60px;
+        }
+
+        .next {
+            right: 60px;
+        }
+
+        .previous:before, .next:before {
+            content: '';
+            display: block;
+            height: 16px;
+            width: 16px;
+            position: absolute;
+            top: 50%;
+            margin-top: -8px;
+            background-color: transparent;
+            border-top: 2px solid #666;
+            border-right: 2px solid #666;
+        }
+
+        .previous:before {
+            right: 50%;
+            margin-right: -12px;
+            transform: rotate(-135deg)
+        }
+
+        .next:before {
+            left: 50%;
+            margin-left: -12px;
+            transform: rotate(45deg)
+        }
+
+        .pic-view {
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            text-align: center;
+            box-shadow: 0 10px 120px rgba(0, 0, 0, .6);
+        }
+
+        .pic-name {
+            display: inline-block;
+            margin-top: 20px;
+            padding: 10px 20px;
+            text-align: center;
+            border-radius: 30px;
+            background-color: rgba(0, 0, 0, .6);
+            color: #fff;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+
+        @keyframes fadeOut {
+            from {
+                opacity: 1;
+            }
+            to {
+                opacity: 0;
+
+            }
+        }
+
+        @keyframes changeRight {
+            0% {
+                opacity: 1;
+            }
+            50% {
+                transform: translateX(50%);
+                opacity: 0;
+            }
+            51% {
+                transform: translateX(-50%);
+                opacity: 0;
+            }
+            100% {
+                transform: translateX(0);
+                opacity: 1;
+            }
+        }
+
+        @keyframes changeLeft {
+            0% {
+                opacity: 1;
+            }
+            50% {
+                transform: translateX(-50%);
+                opacity: 0;
+            }
+            51% {
+                transform: translateX(50%);
+                opacity: 0;
+            }
+            100% {
+                transform: translateX(0);
+                opacity: 1;
+            }
+        }
+
+        .changeRight {
+            animation: changeRight .8s forwards;
+        }
+
+        .changeLeft {
+            animation: changeLeft .8s forwards;
+        }
+
+        .fadeIn {
+            visibility: visible;
+            animation: fadeIn .3s forwards;
+        }
+
+        .fadeOut {
+            animation: fadeOut .3s forwards;
+        }
+    </style>
+</head>
+<body>
+<div id="app">
+    <div class="wrap" v-bind:class="{gray: showPicView}">
+        <div class="title">重邮指路牌</div>
+        <div >
+            <a href="https://github.com/468336329Zc" class="website">https://github.com/468336329Zc</a>
+            <i style="font-size: 25px"> &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;———你的导航伴侣</i>
+        </div>
+        <a class="website" href="https://blog.csdn.net/weixin_43919632?spm=1000.2115.3001.5113"></a>
+        <ul class="screenshot-list">
+            <li class="screenshot-item" v-for="(item, index) in data">
+                <img v-bind:src="item.image" v-bind:data-id="index" v-on:click="showPic">
+                <div class="screenshot-title">{{item.name}}</div>
+            </li>
+            <li class="screenshot-item"></li>
+            <li class="screenshot-item"></li>
+            <li class="screenshot-item"></li>
+            <li class="screenshot-item"></li>
+        </ul>
+    </div>
+
+    <script type="text/javascript" src="https://cdn.bootcss.com/vue/2.1.8/vue.min.js"></script>
+    <script type="text/javascript">
+        function inArray(content, arr) {
+            for (var item in arr) {
+                if (content == arr[item]) {
+                    return true;
+                }
+            }
+            return false;
+        }
+
+        var vm = new Vue({
+            el: '#app',
+            data: {
+                data: [{}],
+                showPicView: false,
+                showPicSrc: '',
+                showPicIndex: 0,
+                showPicWidth: 0,
+                showPicHeight: 0,
+                isChangeLeft: false,
+                isChangeRight: false
+            },
+            methods: {
+                showPic: function (e) {
+                    this.showPicView = true
+                    this.showPicWidth = e.target.naturalWidth
+                    this.showPicHeight = e.target.naturalHeight
+                    this.showPicIndex = e.target.dataset.id
+                },
+                hidePicView: function (e) {
+                    var arr = e.target.className.split(' ')
+                    if (inArray('mask', arr)) {
+                        this.showPicView = false
+                    }
+                },
+                showPicPrevious: function () {
+                    var index = parseInt(this.showPicIndex)
+                    var len = parseInt(this.data.length)
+                    if (index > 0) {
+                        --index
+                    } else {
+                        index = len - 1
+                    }
+                    this.isChangeLeft = true
+                    var _this = this
+                    setTimeout(function () {
+                        _this.showPicIndex = index
+                    }, 400)
+                    setTimeout(function () {
+                        _this.isChangeLeft = false
+                    }, 800)
+                },
+                showPicNext: function () {
+                    var index = parseInt(this.showPicIndex)
+                    var len = parseInt(this.data.length)
+                    if (index < len - 1) {
+                        ++index
+                    } else {
+                        index = 0
+                    }
+                    this.isChangeRight = true
+                    var _this = this
+                    setTimeout(function () {
+                        _this.showPicIndex = index
+                    }, 400)
+                    setTimeout(function () {
+                        _this.isChangeRight = false
+                    }, 800)
+                }
+            },
+            computed: {
+                showPicSrc: function () {
+                    return this.data[this.showPicIndex].image
+                },
+                showPicName: function () {
+                    return this.data[this.showPicIndex].name
+                }
+            }
+        })
+        fetch("http://sign.zhangchuanjun.cn/page-data").then(function (response) {
+            response.json().then(function (data) {
+                vm.data = data
+            })
+        }).catch(function (err) {
+            console.log("错误:" + err);
+        })
+    </script>
+
+</body>
+</html>
