@@ -1,0 +1,4 @@
+/* pages/introduce/introduce.wxss */
+.introduce{
+  width: 100%;
+}

@@ -1,0 +1,18 @@
+<!--pages/admin/admin.wxml-->
+<view class='page-all' >
+  <image class='backpic' src='../../images/backpic.png' mode="aspectFill" ></image>
+  <view class="item" wx:for='{{shuju}}' wx:item='item' wx:key='key' wx:for-index="index" data-index="{{index}}" >
+    <view class='area'><text class='area'>地点:{{item.store_area}}</text></view>
+    <view><text decode="{{true}}">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;地理信息:{{item.store_info}}</text></view>
+        <view><text decode="{{true}}">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;综合评价:{{item.store_ms}}</text></view>
+    <swiper class='swiper' indicator-dots="true" indicator-active-color="#00e709" autoplay="true" interval="3000" duration="300">
+     <view class='two' wx:for='{{item.store_pics}}' wx:for-item='store_pics' wx:key='key' wx:for-index='index' data-index="{{index}}">
+        <swiper-item>
+              <image class='lunbo' mode='aspectFill' src='{{store_pics.path}}'></image>
+        </swiper-item>
+        </view>
+    </swiper>
+      <button type='primary' data-id='{{item._id}}' bindtap='Yes' style='margin-bottom:10rpx;width:40%'>审核通过</button>
+      <button type='warn' data-id='{{item._id}}' bindtap='No' style='margin-bottom:10rpx;width:40%'>审核不通过</button>
+  </view>
+</view>

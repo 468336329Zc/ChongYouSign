@@ -1,0 +1,28 @@
+<!--pages/aboutus/aboutus.wxml-->
+<view class='ns'><image  catchtap="goToMap" class='back' src='../../images/icons/left.png'></image></view>
+<view class='page-ab'>
+    <view class='backpic1'>关于我们</view>
+    <view>
+      <image class='sign' mode='aspectFill'  src='../../images/sign.png'></image>
+    </view>
+    <view class='b5'>
+      <text>重邮指路牌</text>
+    </view>
+    <!-- 页面顶部 -->
+  <view class='page-top1' animation="{{slide_up1}}">
+    <!-- 关于我们 -->
+    <view class="b1">
+      <text decode="{{true}}">——&nbsp;&nbsp;&nbsp;&nbsp;关于我们&nbsp;&nbsp;&nbsp;&nbsp;——</text>
+    </view>
+    <view class='b6'>
+      <text decode="{{true}}">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;《重邮指路牌》是一个为校园全体校园师生及游客提供精准地图导航并附有街景图，手绘彩色地图的校园导航小程序，让您轻松找到所去之处！</text>
+    </view>
+    <!-- 免责声明 -->
+    <view class="b3" >
+      <text decode="{{true}}">——&nbsp;&nbsp;&nbsp;&nbsp;免责声明&nbsp;&nbsp;&nbsp;&nbsp;——</text>
+    </view>
+    <view class='b6'>
+      <text decode="{{true}}">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;《重邮指路牌》不收集任何用户数据并且完全免费，若有上传照片来自于网络侵犯了您的权益，请您联系我们删除，在此表示歉意。</text>
+    </view>
+  </view>
+</view>

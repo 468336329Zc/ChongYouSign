@@ -1,0 +1,10 @@
+<!--pages/Cover/Cover.wxml-->
+<view class='page-sum'>
+  <view class='pic'  animation="{{slide_up1}}">
+    <image mode='aspectFit' src='../../images/cover.png'></image>
+  </view>
+  <view class='welcome' animation='{{slide_up1}}'>
+    <image  mode='aspectFit' src='../../images/welcome.png'></image>
+  </view>
+  <image class='backpic' src='../../images/backpic.png' mode="aspectFill" animation="{{slide_show}}" ></image>
+</view>

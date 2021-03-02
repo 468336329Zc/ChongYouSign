@@ -1,0 +1,31 @@
+<!--pages/map/map.wxml-->
+<view class='ns'></view>
+<scroll-view scroll-y='true' enable-flex='true' class='page-sum'>
+  <image class='backpic' src='../../images/backpic.png' mode="aspectFill" ></image>
+  <!-- <view class=' hand-map'>
+    <image class='hand-map-img' animation="{{slide_up1}}" src='../../images/maps.png'></image>
+  </view> -->
+  <view class='backpic1'>重邮手绘地图</view>
+  <view class='mapView'></view>
+    <image class='map' animation="{{slide_up1}}"src='{{mapImg}}' mode='scaleToFill' bindtap="previewImage"></image>
+    <!-- 页面顶部 -->
+  <view class='page-top1' animation="{{slide_up1}}">
+    <!-- 意见反馈 -->
+    <view class="b1">
+      <image class='icons' src='../../images/icons/contact.png'></image><button class="section_title" open-type='feedback'><text class='wenzi'>意见反馈</text><image class='right' src='../../images/icons/right.png'></image></button>
+    </view>
+    <!-- 使用说明 -->
+    <view class="b2" bindtap="goToInt">
+      <image class='icons' src='../../images/icons/introduce.png'></image><button class="section_title"><text class='wenzi'>使用说明</text><image class='right' src='../../images/icons/right.png'></image></button>
+    </view>
+    <!-- 关于我们 -->
+    <view class="b3" bindtap="goToUs">
+      <image class='icons' src='../../images/icons/aboutus.png'></image><button class="section_title"><text class='wenzi'>关于我们</text><image class='right' src='../../images/icons/right.png'></image></button>
+    </view>
+  </view>
+</scroll-view>
+
+
+  <!-- <view class='yellow'>
+    <image class='yellow-image' src='../../images/yellow.png'></image>
+  </view> -->

@@ -1,0 +1,26 @@
+/* pages/Cover/Cover.wxss */
+page{
+  height: 100%;
+}
+.pic{
+  position: absolute;
+  margin-top: 110%;
+  margin-left: 9%;
+  opacity: 0;
+}
+.welcome{
+  position: absolute;
+  margin-top: 160%;
+  margin-left:9%;
+  opacity: 0;
+}
+.backpic{
+  width: 100%;
+  height: 100%;
+  position:fixed; 
+  background-size:100% 100%;
+  z-index: -1;
+}
+.page-sum{
+  padding: 0rpx;
+}

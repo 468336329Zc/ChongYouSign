@@ -1,0 +1,24 @@
+/* pages/jump/jump.wxss */
+page{
+  background-color: #FFFAF0;
+}
+text{
+  vertical-align:middle;
+  line-height: 300rpx; 
+  font-size: 35rpx;
+  font-weight: bold; 
+  color:ivory; 
+}
+.backpic{
+  width: 100%;
+  height: 100%;
+  position:fixed; 
+  background-size:100% 100%;
+  z-index: -1;
+}
+.btn-area{
+  display: flex;
+  flex-direction: column ;
+  height: 95%;
+  width: 100%;
+}

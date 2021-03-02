@@ -1,0 +1,87 @@
+/* pages/aboutus/aboutus.wxss */
+.ns {
+  width: 100%;
+  height: 155rpx;
+  line-height: 225rpx; 
+  font-size:36rpx;
+  color: black;
+  font-weight: 900;
+  background: -webkit-linear-gradient(left,#27a877,#45e2ad,#66FF99);
+  letter-spacing:5rpx;
+}
+.backpic1{
+  width: 100%;
+  height:300rpx;
+  border-radius: 0% 0% 10% 10%;
+  background: -webkit-linear-gradient(left,#27a877,#45e2ad,#66FF99);
+  z-index: 0;
+  text-align: center;
+  font-size: 36px;
+  font-weight: bolder;
+  color: white;
+  line-height: 130rpx;
+  letter-spacing:20rpx;
+}
+.sign{
+  border-radius: 50%;
+  border:10px solid white;
+  position: absolute;
+  top:300rpx;
+  width: 250rpx;
+  height: 250rpx;
+  margin-left: 30%;
+}
+.page-top1{
+  display: flex;
+  flex-direction: column;
+  width:90%;
+  left: 5%;
+  margin-top:5%;
+  height: fit-content;
+  border-radius: 40rpx;
+  box-shadow:0px 2px 4px 2px #DDDDDD;
+  position: relative;
+}
+.b1{
+  position: relative;  
+  display: flex; 
+  top:0;
+  left: 0;
+  padding: 15px; 
+  align-items: center;  
+  padding-top: 20px;
+  border-top-left-radius: 20rpx;
+  border-top-right-radius: 20rpx;  
+  color: #45e2ad;
+  justify-content: center;
+}
+.b3{
+  position: relative;  
+  display: flex; 
+  top:0;
+  left: 0;
+  padding: 15px; 
+  align-items: center;  
+  padding-top: 20px;
+  border-bottom-right-radius: 20rpx;
+  border-bottom-left-radius: 20rpx;
+  color: #45e2ad;
+  justify-content: center;
+}
+.b6{
+  color: slategrey;
+  width: 90%;
+  margin-left: 5%;
+  margin-bottom: 5%;
+}
+.b5{
+  font-size: 28px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 25%;
+}
+.back{
+  width: 50rpx;
+  height: 50rpx;
+}

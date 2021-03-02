@@ -1,0 +1,62 @@
+<view class='page-all'>
+  <!-- 页面顶部 -->
+  <view class='page-top' animation="{{slide_up1}}">
+    <!-- 类型 -->
+    <view class="section">
+        <picker mode="selector" bindchange="addType" value="{{index}}" range="{{type}}" >
+          <view class="b1">
+            类型：{{type[index]}}
+          </view>
+        </picker>
+    </view>
+    <!-- 地点名称 -->
+    <view class="b2">    
+      <view class="section__title">地点：</view>  
+      <input name="input1" placeholder="例如:三教" bindinput="addArea"/>
+    </view>
+    <!-- 地点图片 -->
+    <view class="b2">    
+      <view class="section__title">地点图片：</view> 
+      <view class='img-upload'>
+        <view  wx:if="{{pic_num<3}}" class="img-add" bindtap="chooseImage"></view>
+        <view class="img-item"  wx:if="{{tem_pictures.length!=0}}" wx:for="{{tem_pictures}}" wx:key="index">
+            <image src="{{item}}"  bindtap="previewImg"  mode="aspectFill"></image>
+          <icon type="clear" size="20" color="red" bindtap="deleteImg" data-index="{{index}}"/>				
+        </view>
+      </view>
+    </view>
+    <!-- 地点描述 -->
+    <view class="b2">
+      <view class="section_title">位置描述：</view>
+      <input name="input1" placeholder="简单的地理位置描述" bindinput="addAreaInfo"/>
+    </view> 
+    <!-- 综合描述 -->
+    <view class="b3">
+      <view class="section_title">综合描述：</view>
+      <input name="input1" placeholder="简单的概括地点" bindinput="addPingjia"/>
+    </view>
+  </view>
+
+  <!-- 页面底部 -->
+  <view class='page-bottom3' animation="{{slide_up1}}">
+  <!-- Tips -->
+    <view class='tips'>
+      <text decode="{{true}}" space="{{true}}">&nbsp;&nbsp;温馨提示:
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;请确保您手机当前位置在您上传的地点</text>
+    </view>
+    <!--弹窗位置信息获取失败-->
+    <view class='defeat'>
+      <button bindtap="regetLocation" plain="true" style="box-shadow:5px 5px 4px 2px #DDDDDD;border-color:#45e2ad;color:#45e2ad;">{{location}}</button>
+    </view>
+    <view class='submit'>
+      <button bindtap="addLocationInfo" type="primary" style="box-shadow:5px 5px 4px 2px #DDDDDD;background:-webkit-linear-gradient(left,#27a877,#45e2ad,#66FF99);color:white'">上传</button>
+    </view>
+  </view>
+</view>
+
+
+
+
+
+
+ 

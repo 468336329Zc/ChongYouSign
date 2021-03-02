@@ -1,0 +1,116 @@
+<!--pages/top/top.wxml-->
+<view class='ns'><text decode="{{true}}">&nbsp;&nbsp;&nbsp;&nbsp;重邮指路牌</text></view>
+<view class="page">
+    <view  class="page-bottom">
+        <!--背景部分 -->
+        <image class='bgimg' src='../../images/background.png'></image>
+        <scroll-view scroll-y='true' enable-flex='true' class="page-content">
+            <view  class="wc">
+                <view bindtap='goToAdmin' hover-class="view-hover" ><image class='icons' src='../../images/icons/admin.png'></image>管理员</view>
+            </view>
+            <view  class="wc">
+                <view bindtap='goToTop' hover-class="view-hover" ><image class='icons' src='../../images/icons/top.png'></image>校园必去Top10</view>
+            </view>
+            <view  class="wc">
+                <view bindtap='goToTeachBuild' hover-class="view-hover"><image class='icons' src='../../images/icons/teachbuild.png'></image>教学楼</view>
+            </view>
+            <view  class="wc">
+                <view bindtap='goToXueYuan' hover-class="view-hover"><image class='icons' src='../../images/icons/xueyuan.png'></image>学院</view>
+            </view>
+            <view  class="wc">
+                <view bindtap='goToKuaiDi' hover-class="view-hover"><image class='icons' src='../../images/icons/kuaidi.png'></image>快递点</view>
+            </view>
+            <view  class="wc">
+                <view bindtap='goToJingDian' hover-class="view-hover"><image class='icons' src='../../images/icons/view.png'></image>景点</view>
+            </view>
+            <view  class="wc">
+                <view bindtap='goToShiTang' hover-class="view-hover"><image class='icons' src='../../images/icons/shitang.png'></image>食堂</view>
+            </view>
+            <view  class="wc">
+                <view bindtap='goToOther' hover-class="view-hover"><image class='icons' src='../../images/icons/other.png'></image>其他</view>
+            </view>
+        </scroll-view>
+    </view>
+    <view bindtouchmove="tap_drag" bindtouchend="tap_end" bindtouchstart="tap_start" class="page-top {{open ? 'c-state2' : ''}}">
+        <image class='page-icon' bindtap="tap_ch" src="../../images/menu.png"></image>
+        <view class="text">学院</view>
+        <image class='background-icon' src='../../images/bc.png'></image>
+         <!-- 上传位置 -->
+          <image class='plus' z-index='100' src='../../images/plus.png' bindtap="goToEditor"></image>
+          <!-- 搜索框 -->
+            <view class='search' >
+            <scroll-view class='scroll-view' wx:if='{{viewShowed}}' scroll-y>
+                        <view wx:for="{{carList}}" wx:key="{{index}}" class="msg-item ">
+                          <view class='search_name' bindtap='name' data-index="{{index}}">{{item}}</view>
+                        </view>
+            </scroll-view>
+              <view class='search_left' style="top:100rpx">
+                <view class='search_wrap'>
+                  <icon class="search_icon" type="search" size='20'></icon>
+                  <input type="text" class="search_input" placeholder="请输入地点名称（如三教等）" value="{{inputVal}}" bindinput="inputTyping" />
+                </view>
+                </view> 
+              <view class='search_right' style="top:90rpx">
+                <button class="search_cancel" bindtap="hideInput"></button>
+                <image class="search_cancel_img"  wx:if='{{viewShowed}}' src='../../images/close.png'></image>
+                <text class="search_submit"  data-area="{{inputVal}}" bindtap="goToDetail1">搜索</text>
+              </view>
+
+            </view>
+            <!-- 获取用户openid -->
+            
+        <!-- 主块 -->
+        <scroll-view scroll-y='true' style='height:{{scrollHeight}}px' class="container" enable-flex='true' >
+          <!-- 左块 -->
+          <view class='left-container'  animation="{{slide_up1}}" >
+            <view class='item' wx:for='{{shuju}}' wx:item='item' wx:key='key'  wx:for-index="index" data-index="{{index}}"  wx:if='{{index%2==0}}' bindtap="goToDetail" data-area='{{item.store_area}}' >
+              <image mode='aspectFill' src='{{item.store_pics[0].path}}'></image>
+              <text style='align-items: center;display: flex;justify-content: center;' >{{item.store_area}}</text>
+              <view class='describe'>
+                <text>{{item.store_ms}}</text>
+              </view>
+              <!-- 加星 -->
+              <view class='star1'>
+                <image wx:if='{{0<=item.store_like && item.store_like<20}}' class='star' mode="widthFix" src='../../images/icons/star1.png'></image>
+                <image wx:elif='{{20<=item.store_like && item.store_like<40}}' class='star' mode="widthFix" src='../../images/icons/star2.png'></image>
+                <image wx:elif='{{40<=item.store_like && item.store_like<60}}' class='star' mode="widthFix" src='../../images/icons/star3.png'></image>
+                <image wx:elif='{{60<=item.store_like && item.store_like<80}}' class='star' mode="widthFix" src='../../images/icons/star4.png'></image>
+                <image wx:elif='{{80<=item.store_like && item.store_like<100}}' class='star' mode="widthFix" src='../../images/icons/star5.png'></image>
+              </view>
+              <!-- 点赞 -->
+              <view class='favorite'>
+                <!-- 点赞的图标 -->
+                <image catchtap="Favorite" src="{{item.status_z==0?'../../images/icons/favorite1.png':'../../images/icons/favorite2.png'}}" mode="widthFix" data-count="{{item.count}}"></image>
+                <!-- 总点赞的次数 -->
+                <text class='favTimes'>{{item.store_like}}</text>
+              </view>
+            </view>
+          </view>
+          <!-- 右块 -->
+          <view class='right-container'  animation="{{slide_up1}}">
+            <view class='item' wx:for='{{shuju}}' wx:item='item' wx:key='key' wx:for-index="index" data-index="{{index}}" wx:if='{{index%2!=0}}'bindtap="goToDetail" data-area='{{item.store_area}}' > 
+              <image mode='aspectFill' src='{{item.store_pics[0].path}}'></image>
+              <text style='align-items: center;display: flex;justify-content: center;' >{{item.store_area}}</text>
+              <view class='describe'>
+                <text>{{item.store_ms}}</text>
+              </view>
+              <!-- 加星 -->
+              <view class='star1'>
+                <image wx:if='{{0<=item.store_like && item.store_like<20}}' class='star' mode="widthFix" src='../../images/icons/star1.png'></image>
+                <image wx:elif='{{20<=item.store_like && item.store_like<40}}' class='star' mode="widthFix" src='../../images/icons/star2.png'></image>
+                <image wx:elif='{{40<=item.store_like && item.store_like<60}}' class='star' mode="widthFix" src='../../images/icons/star3.png'></image>
+                <image wx:elif='{{60<=item.store_like && item.store_like<80}}' class='star' mode="widthFix" src='../../images/icons/star4.png'></image>
+                <image wx:elif='{{80<=item.store_like && item.store_like<100}}' class='star' mode="widthFix" src='../../images/icons/star5.png'></image>
+              </view>
+              <!-- 点赞 -->
+              <view class='favorite'>
+                <!-- 点赞的图标 -->
+                <image catchtap="Favorite" src="{{item.status_z==0?'../../images/icons/favorite1.png':'../../images/icons/favorite2.png'}}" mode="widthFix" data-count="{{item.count}}"></image>
+                <!-- 总点赞的次数 -->
+                <text class='favTimes'>{{item.store_like}}</text>
+              </view>
+            </view>
+          </view>
+        </scroll-view>
+    </view>
+</view>

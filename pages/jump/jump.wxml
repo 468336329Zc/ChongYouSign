@@ -1,0 +1,14 @@
+<!--pages/jump/jump.wxml-->
+<view class="btn-area">
+    <image class='backpic' src='../../images/backpic.png' mode="aspectFill" ></image>
+  <navigator url="/pages/admin/admin">
+    <button  type='warn' style='width:300rpx;height:300rpx;margin-top:40%;border-radius:300rpx;box-shadow:5px 5px 4px 2px #DDDDDD;'>
+      <text>审核</text>
+    </button>
+  </navigator>
+  <navigator url="/pages/replace/replace">
+    <button type='primary' style='width:300rpx;margin-top:30%;height:300rpx;border-radius:300rpx;box-shadow:5px 5px 4px 2px #DDDDDD;'>
+      <text>删除/Top</text>
+    </button >
+  </navigator>
+</view>

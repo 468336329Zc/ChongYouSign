@@ -1,0 +1,52 @@
+<!--pages/detail/detail.wxml-->
+<image class='backpic' src='../../images/backpic.png' mode="aspectFill" ></image>
+<view class='page-sum'>
+  <view class='page-desc'>
+      <swiper class='swiper' current="{{swiperCurrent}}"  indicator-dots="true" animation="{{slide_up1}}" indicator-active-color="#00e709" autoplay="true" interval="3000" duration="300" bindtap="previewImage">
+      <view wx:for='{{list1[0].store_pics}}' wx:item='item' wx:key='key'>
+        <swiper-item>
+          <image class='lunbo' mode='aspectFill' src='{{item.path}}' data-src="{{item.path}}" mode='aspectFill'></image>
+        </swiper-item>
+        </view>
+      </swiper>
+      <view class='info' animation="{{slide_up1}}">
+        <view style="text-align: center;">
+          <text>地点描述</text>
+        </view>
+        <view>
+          <text decode="{{true}}" space="{{true}}">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{{list1[0].store_info}}</text>
+        </view>
+      </view>
+  </view>
+  <!-- 弹幕 -->
+  <view class="talkbubble" animation="{{slide_up1}}">
+    <view>
+      <text>留言：</text>
+      <swiper class="swiper_container" vertical="true" autoplay="true" circular="true" interval="2000">
+        <block wx:for="{{list1[0].store_cmt}}">
+        <swiper-item>
+          <view class="swiper_item">{{item.FirstName}}</view>
+        </swiper-item>
+        </block>
+      </swiper>
+    </view> 
+    <view class='input'>
+      <image class='input' catchtap="modalinput" src='../../images/icons/input.png'></image>
+      <modal class='modalinput' hidden="{{hiddenmodalput}}" title="请输入你的留言" 
+            confirm-text="提交" cancel-text="取消" bindcancel="modalinput" 
+            bindconfirm="addConf">
+        <input type='text' placeholder="请输入留言" bindconfirm='addConf' bindinput='addCmt' maxlength='13' auto-focus/>
+      </modal>
+    </view>
+  </view>
+
+  <!-- 进入导航 pre-->
+  <view class="page-navi" animation="{{slide_up1}}">
+      <button hover-class='tap-hover' hover-stay-time="3000" bindtap='getNavigation' style='width:60%;box-shadow:2px 2px 4px 2px #DDDDDD;background:-webkit-linear-gradient(left,#27a877,#45e2ad,#66FF99);color:white'>进入导航</button>
+  </view>
+
+
+  <!-- <view class='tips'>
+      <text>温馨提示：请打开GPS哦</text>
+  </view> -->
+</view>

@@ -1,0 +1,145 @@
+{
+	"description": "项目配置文件",
+	"cloudfunctionRoot": "cloud/",
+	"packOptions": {
+		"ignore": []
+	},
+	"setting": {
+		"urlCheck": true,
+		"es6": true,
+		"postcss": true,
+		"preloadBackgroundData": false,
+		"minified": true,
+		"newFeature": true,
+		"coverView": true,
+		"autoAudits": false,
+		"showShadowRootInWxmlPanel": true,
+		"scopeDataCheck": false,
+		"checkInvalidKey": true,
+		"checkSiteMap": true,
+		"uploadWithSourceMap": true,
+		"babelSetting": {
+			"ignore": [],
+			"disablePlugins": [],
+			"outputPath": ""
+		},
+		"useCompilerModule": false,
+		"userConfirmedUseCompilerModuleSwitch": false
+	},
+	"compileType": "miniprogram",
+	"libVersion": "2.10.4",
+	"appid": "wx008878b6498bdb02",
+	"projectname": "%E9%87%8D%E9%82%AE%E6%8C%87%E8%B7%AF%E7%89%8C",
+	"cloudfunctionTemplateRoot": "cloudfunctionTemplate",
+	"watchOptions": {
+		"ignore": []
+	},
+	"debugOptions": {
+		"hidedInDevtools": []
+	},
+	"scripts": {},
+	"simulatorType": "wechat",
+	"simulatorPluginLibVersion": {},
+	"condition": {
+		"search": {
+			"current": -1,
+			"list": []
+		},
+		"conversation": {
+			"current": -1,
+			"list": []
+		},
+		"plugin": {
+			"current": -1,
+			"list": []
+		},
+		"game": {
+			"list": []
+		},
+		"gamePlugin": {
+			"current": -1,
+			"list": []
+		},
+		"miniprogram": {
+			"current": -1,
+			"list": [
+				{
+					"id": -1,
+					"name": "detail",
+					"pathName": "pages/detail/detail",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "JingDian",
+					"pathName": "pages/JingDian/JingDian",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "editor",
+					"pathName": "pages/editor/editor",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "Cover",
+					"pathName": "pages/Cover/Cover",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "TeachBuild",
+					"pathName": "pages/TeachBuild/TeachBuild",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "admin",
+					"pathName": "pages/admin/admin",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "jump",
+					"pathName": "pages/jump/jump",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "top",
+					"pathName": "pages/top/top",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "map",
+					"pathName": "pages/map/map",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "pages/detail/detail",
+					"pathName": "pages/detail/detail",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "aboutus",
+					"pathName": "pages/aboutus/aboutus",
+					"scene": null
+				}
+			]
+		}
+	}
+}
