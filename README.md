@@ -1,12 +1,10 @@
 # ChongYouSign
 
-
-小程序UI查看：[http://sign.zhangchuanjun.cn](http://sign.zhangchuanjun.cn)
-
-
 **当代大学校园出行必备导航**
 																						**——小程序《重邮指路牌》**
 
+
+产品介绍主页：![](http://sign.zhangchuanjun.cn/)
 一. 产品定位 项目介绍
 
 （1） 产品定义
@@ -27,7 +25,7 @@
 
 
 
-![https://sign-1259371307.file.myqcloud.com/1608308039422-express.jpg](https://sign-1259371307.file.myqcloud.com/1608308039422-express.jpg)
+![https://img04.sogoucdn.com/app/a/100520146/edf101dd71c6e0437f44ddd80017d333](https://img04.sogoucdn.com/app/a/100520146/edf101dd71c6e0437f44ddd80017d333)
 
 
 
@@ -43,7 +41,7 @@
 
 4）对于店铺超市，由于宣传手段有限，没有一个好的平台向目标用户发布最新的店铺宣传信息，需要一个能及时向目标用户发送宣传信息的平台。
 
-![https://sign-1259371307.file.myqcloud.com/1608308039422-express.jpg](https://sign-1259371307.file.myqcloud.com/1608308039422-express.jpg)
+![https://img04.sogoucdn.com/app/a/100520146/517895a9eb189c1fea8ac38394584b13](https://img04.sogoucdn.com/app/a/100520146/517895a9eb189c1fea8ac38394584b13)
 
 2.系统功能需求：
 
@@ -59,7 +57,7 @@
 
 （6） 校园手绘地图
 
-![https://ae01.alicdn.com/kf/U488d6c1af33f4baf91e4af94e4384dc8g.jpg](https://ae01.alicdn.com/kf/U488d6c1af33f4baf91e4af94e4384dc8g.jpg)
+![https://img04.sogoucdn.com/app/a/100520146/a5e25b4e9e7b50db99281af34b9d3eb9](https://img04.sogoucdn.com/app/a/100520146/a5e25b4e9e7b50db99281af34b9d3eb9)
 
 （1）位置信息上传
 
@@ -69,25 +67,27 @@
 
 考虑服务器性能，我们对图片压缩，并且图片预览时的图片的地址是临时地址，最后点击上传时，才上传所有字段信息。
 
-![s](https://ae01.alicdn.com/kf/U0c15302015e14448ac98f00298f25aa4T.jpg)
+![https://img02.sogoucdn.com/app/a/100520146/2d3deffa22c608ef043dc00534f7b6ef](https://img02.sogoucdn.com/app/a/100520146/2d3deffa22c608ef043dc00534f7b6ef)
 
+![https://img02.sogoucdn.com/app/a/100520146/4ff03f7cb1e68c85b00d3de2877dca01](https://img02.sogoucdn.com/app/a/100520146/4ff03f7cb1e68c85b00d3de2877dca01)
 
+![https://img04.sogoucdn.com/app/a/100520146/26f6680a5131b74defe3d69c7fec89f6](https://img04.sogoucdn.com/app/a/100520146/26f6680a5131b74defe3d69c7fec89f6)
 
 （2）地点分类分页展示
 
 从前端获取从封面加载数据库中的已审核过的数据并展示在页面上，点击图片即可进入该地点的位置详细信息以及进入导航界面。并通过制作一个动画向右滑动或点击菜单按钮获取地点的分类信息，点击某一个地点类即可进入该类所有地点，并且将管理员按钮放在右滑界面，从封面获得的openid判断是否为管理员，并由判断结果决定是否显示管理员按钮，首页当中分为图片展示界面和搜索框和上传图片界面，下方导航栏分为导航和手绘地图，点击图标会变成彩色的图标，进入手绘地图页面点击图片就会预览超清大图，实现了放大功能。导航界面使用了官方的小程序路线规划插件，使得定位更加精准，功能更加多样化。
 
-![https://img02.sogoucdn.com/app/a/100520146/cad9b0f0ab7831dc5eb697fef8ce6723](https://sign-1259371307.cos.ap-chongqing.myqcloud.com/1608308699801-contents.jpg)
+![https://img02.sogoucdn.com/app/a/100520146/cad9b0f0ab7831dc5eb697fef8ce6723](https://img02.sogoucdn.com/app/a/100520146/cad9b0f0ab7831dc5eb697fef8ce6723)
 
 （3）管理员审核功能
 从数据库中获取未审核的地点信息，即status_l为零的地点信息，管理员查看后点击通过则通过update操作将该地点的status_l修改为1，即更改为用户可见信息，如果审核不通过为了不占用云存储资源：我们先通过当前名字得到当前记录的id,通过id找到其对应的图片json还然后通过循环它，删除其在云存储中的图片，图片删完之后，在将最初获得的json数据中对应的也删除该记录，从而前端会已经被审核的位置，通过remove()重数据库中删除东西。
 
-![https://img04.sogoucdn.com/app/a/100520146/779e4cc5f58e92f32629b284b3b6291a](https://ae01.alicdn.com/kf/U279e5fd71ad34dfd87137f6a07ea2f34c.jpg)
+![https://img04.sogoucdn.com/app/a/100520146/779e4cc5f58e92f32629b284b3b6291a](https://img04.sogoucdn.com/app/a/100520146/779e4cc5f58e92f32629b284b3b6291a)
 
 （4）位置删除替换功能
 从数据库中获取已经审核通过的地点信息，即status_l为1的位置，管理员查看后点击top则通过update操作将该地点的status_top修改为1，即为用户可在top页面见该条记录，如果该位置已经被被弃用管理员只需要点击替换，为了不占用云存储资源我们先通过当前名字得到当前记录的id,通过id找到其对应的图片json还然后通过循环它，删除其在云存储中的图片，图片删完之后，在将最初获得的json数据中对应的也删除该记录，从而前端会已经被审核的位置，通过remove()重数据库中删除东西。
 
-![https://img04.sogoucdn.com/app/a/100520146/779e4cc5f58e92f32629b284b3b6291a](https://ae01.alicdn.com/kf/Ueb6cc715bea34d9baca81e1eb38c9462a.jpg)
+![https://img04.sogoucdn.com/app/a/100520146/779e4cc5f58e92f32629b284b3b6291a](https://img04.sogoucdn.com/app/a/100520146/779e4cc5f58e92f32629b284b3b6291a)
 
 举例：参观清华的非功能需求就是根据系统的实际要求，提出了关键的三个内容：一是性能，给出具体的量化指标；二是安全性，诸如身份证敏感信息等；三是可靠性，包括停电和断网问题、游客快速进入的问题等。 
 
@@ -111,11 +111,11 @@
 
 
 
-![https://img03.sogoucdn.com/app/a/100520146/8e43c6ccbb05d581fc0e23134125a2aa](https://sign-1259371307.file.myqcloud.com/1608308547071-startNavigate.jpg)
+![https://img03.sogoucdn.com/app/a/100520146/8e43c6ccbb05d581fc0e23134125a2aa](https://img03.sogoucdn.com/app/a/100520146/8e43c6ccbb05d581fc0e23134125a2aa)
 
 6.技术方案： 
 
-
+![](https://img03.sogoucdn.com/app/a/100520146/78b75a43ac7bcc13805a8b988df23c9b)
 
 技术选型/开发环境/框架/第三方组件：采用云开发，将数据都保存在云数据库中，前端后台均采用微信官方原生架构，使用微信开发者工具开发，采用了腾讯地图路线规划插件。
 
